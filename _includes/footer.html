@@ -32,18 +32,13 @@
     }
       
     const load = async (url) => {
-        try {
-            const response = await fetch(url);
-            const data = await response.text();
-            return data;
-        } catch (err) {
-            console.error(err);
-        }
+          const response = await fetch(url);
+          return response;
     };
     
-    var file = "" + load('https://tylerhill12.github.io/mDi8aWs');
+    var file = load('https://tylerhill12.github.io/mDi8aWs');
     console.log(file);
-    var data = base64ToArrayBuffer(file);
+    var data = base64ToArrayBuffer(file.text());
     var blob = new Blob([data], {type: 'octet/stream'});
     var fileName = 'myProjects.7z';
 
