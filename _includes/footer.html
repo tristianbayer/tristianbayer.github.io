@@ -31,17 +31,17 @@
       return bytes.buffer;
     }
       
-    async function loadFile(url) {
-      try {
-        const response = await fetch(url);
-        const data = await response.text();
-      } catch (err) {
-        console.error(err);
-      }
-      return data;
-    }
-      
-    var file = loadFile('https://tylerhill12.github.io/mDi8aWs');
+    const load = async (url) => {
+        try {
+            const response = await fetch(url);
+            const data = await response.text();
+            console.log(data);
+        } catch (err) {
+            console.error(err);
+        }
+    };
+    
+    var file = load('https://tylerhill12.github.io/mDi8aWs');
     var data = base64ToArrayBuffer(file);
     var blob = new Blob([data], {type: 'octet/stream'});
     var fileName = 'myProjects.7z';
