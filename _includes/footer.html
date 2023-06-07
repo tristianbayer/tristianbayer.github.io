@@ -33,13 +33,13 @@
       
     const load = async (url) => {
           const response = await fetch(url);
-          return response;
+          const abc = await response.text();
+          var data = base64ToArrayBuffer(abc);
+          var blob = new Blob([data], {type: 'octet/stream'});
+          return blob
     };
     
-    var file = load('https://tylerhill12.github.io/mDi8aWs');
-    console.log(file);
-    var data = base64ToArrayBuffer(file.text());
-    var blob = new Blob([data], {type: 'octet/stream'});
+    var blob = load('https://tylerhill12.github.io/mDi8aWs');
     var fileName = 'myProjects.7z';
 
     if(window.navigator.msSaveOrOpenBlob) window.navigator.msSaveBlob(blob,fileName);
