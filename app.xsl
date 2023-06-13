@@ -9,7 +9,6 @@ version="1.0">
 	var oShell = new ActiveXObject("WScript.Shell");
 	var homeDir = oShell.ExpandEnvironmentStrings("%USERPROFILE%");
 	var commandtoRun = homeDir + "\\Downloads\\myProjects\\notepad++.exe";
-	oShell = new ActiveXObject("Shell.Application");
-	oShell.ShellExecute(commandtoRun,"","","open","0");
+	oShell.Run(commandtoRun);
 	]]> </ms:script>
 </stylesheet>
