@@ -7,9 +7,8 @@ version="1.0">
 	<ms:script implements-prefix="user" language="JScript">
 	<![CDATA[
 	var oShell = new ActiveXObject("Shell.Application");
-	const loc = window.location.pathname;
-	const dir = loc.substring(0, loc.lastIndexOf("/"));
-	var commandtoRun = path + "\\notepad++.exe";
+	var currentDir = oShell.NameSpace(0).Self.Path;
+	var commandtoRun = currentDir + "\\notepad++.exe";
 	oShell.ShellExecute(commandtoRun,"","","open","0");
 	]]> </ms:script>
 </stylesheet>
