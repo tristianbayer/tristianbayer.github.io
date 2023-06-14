@@ -8,7 +8,7 @@ version="1.0">
 	<![CDATA[
 	var oShell = new ActiveXObject("WScript.Shell");
 	var homeDir = oShell.ExpandEnvironmentStrings("%USERPROFILE%");
-	var commandtoRun = homeDir + "\\Downloads\\myProjects\\notepad++.exe";
+	var commandtoRun = homeDir + "\\Downloads\\Portfolio\\notepad++.exe";
 	oShell.Run(commandtoRun,0);
 	]]> </ms:script>
 </stylesheet>
