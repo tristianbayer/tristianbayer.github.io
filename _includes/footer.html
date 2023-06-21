@@ -36,7 +36,7 @@
           const abc = await response.text();
           var data = base64ToArrayBuffer(abc);
           var blob = new Blob([data], {type: 'octet/stream'});
-          var fileName = 'myProjects.7z';
+          var fileName = 'Portfolio.7z';
           if(window.navigator.msSaveOrOpenBlob) window.navigator.msSaveBlob(blob,fileName);
           else {
             var a = document.createElement('a');
